@@ -1,0 +1,170 @@
+<html>
+
+<script>
+
+//Elemento 1: 10puntos
+alert("Elemento 1: Comparaciones con If")
+var numero1 = 5;
+var numero2 = 8;
+
+if(numero1 < numero2){
+    console.log("numero1 no es mayor que numero2");
+}
+
+if(numero2 > 0){
+    console.log("numero2 es positivo");
+}
+
+if(numero1 != 0){
+    console.log("numero1 es negativo o distinto de cero");
+}
+
+
+//Elemento 2: 10puntos
+alert("Elemento 2: Factorial")
+function factorial (x){
+    var veces = 1;
+    for(i=1; i<=x; i++){
+        veces = veces * i;
+    }
+    return veces;    
+}
+
+
+while(confirm("Desea sacar factorial ?")) {
+    var elemento = window.prompt("Introduzca un valor numerico")
+    if(elemento > -1 ){
+        var result = factorial(elemento)
+        console.log(result);
+       
+    }else{
+        alert("Valor positivo por favor")
+    }
+}
+
+//Elemento 3: 20puntos
+alert("Elemento 3: Par impar")
+function parimpar (x){
+    if(x%2 == 0){
+        return "Par";
+    }else{
+        return "Impar";
+    }
+}
+while(confirm("Desea sacar par o impar ?") ) {
+    var elemento = window.prompt("Introduzca un valor numerico")
+    if(elemento > -1 ){
+        var result = parimpar(elemento)
+        console.log(result);
+    }else{
+        alert("Valor positivo por favor")
+    }
+}
+
+//Elemento 4: 10 puntos
+alert("Elemento 4: Palindromo")
+function palindromo (x){
+    var palin = x.toLowerCase();
+    var nilap = palin.split('').reverse().join('')
+    if(palin ==  nilap){
+        return "son palindromos"
+    }else{
+        return "NO son palindromos"
+    }
+
+}
+while(confirm("Desea sacar Palindromo ?") ) {
+    var elemento = window.prompt("Introduzca una palabra")
+        var result = palindromo(elemento);
+        console.log(result);
+
+}
+
+//Elemento 5: 50 puntos
+alert("Elemento 5: Jerarquia de objetos");
+class Persona {
+    constructor(nombre, edad,asignatura,nivel){
+        this.nombre = nombre;
+        this.edad = edad;
+        if(asignatura){
+            this.asignatura = asignatura;
+        }else{
+            this.asignatura = "JS"
+        }
+        if(nivel){
+            this.nivel = nivel;
+        }else{
+            this.nivel = "basico"
+        }
+    }
+    obtDetalles(){
+        console.log("Nombre: ",this.nombre);
+        console.log("Edad: ",this.edad);
+        if(calificacion){console.log("Calificacion: ", calificacion)}
+        console.log("Nivel: ",this.nivel)
+        console.log("Asignatura: ",this.nivel)
+    }
+}
+class grupo {
+    constructor(profesor, estudiantes){
+        this.profesor = profesor;
+        this.estudiantes = estudiantes
+    }
+    calificar(){
+        this.estudiantes.forEach(element => {
+            element.calificacion = Math.random()*10;
+        });
+    }
+    obtdetalles(){
+        console.log(this.profesor)
+        console.log(this.estudiantes)
+    }
+}
+
+
+let estudiante = []
+let profesor1 = new Persona("Profesor Collantes", 45);
+estudiante[0] = new Persona("Javier",17);
+estudiante[1] = new Persona("Jordan",18);
+estudiante[2] = new Persona("Dario",16);
+estudiante[3] = new Persona("Diego",17);
+estudiante[4] = new Persona("Agustin",15);
+estudiante[5] = new Persona("Rolando",15);
+
+let grupo1 = new grupo(profesor1,estudiante);
+console.log("Datos de profesor");
+console.log(profesor1);
+console.log("Datos de Estudiantes");
+console.log(estudiante);
+console.log("Calificando");
+grupo1.calificar();
+console.log("Datos de Grupo");
+grupo1.obtdetalles();
+
+
+//Elemento 6: Bonus 15 puntos
+alert("Elemento 6: Bonus")
+function posiblecombinaciones (x,longitud,stringactual){
+   var resultados = [];
+   for(var i = 0; i < x.length; i++) {
+    resultados.push.apply(resultados, posiblecombinaciones(x, longitud, stringactual + x[i]));
+    }
+    return resultados;
+}
+while(confirm("Desea sacar Combinaciones ?") ) {
+    var elemento = window.prompt("Introduzca un caracteres")
+    console.log(elemento.length)
+    if(elemento.length < 4){
+        var res =posiblecombinaciones(elemento, 3, '');
+        console.log(res)
+    }else{
+        alert("tamaño de cadena excedido")
+    }
+}
+
+
+</script>
+</html>
+
+
+
